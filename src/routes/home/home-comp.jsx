@@ -1,7 +1,11 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
 import DirectMenu from '../../components/category-directory/Directory';
-
+import Raj from '../../assets/raj.jpg';
+import Vfilm from '../../assets/filmvic.jpg';
+import Vic from '../../assets/vfilm2.jpg';
+import Vicrop from '../../assets/pan.jpg';
+import Vframe from '../../assets/vframe.jpg';
 
 const Home = () => {
   const categories = [
@@ -13,7 +17,7 @@ const Home = () => {
     {
       id: 2,
       title: 'jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+      imageUrl: Raj,
     },
     {
       id: 3,
@@ -28,14 +32,15 @@ const Home = () => {
     {
       id: 5,
       title: 'mens',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+      imageUrl: Vframe,
     },
   ];
-
+  
   return(
     <div>
-      <DirectMenu categories={categories} />
       <Outlet/>
+      <DirectMenu categories={categories} />
+      
     </div>
     
 

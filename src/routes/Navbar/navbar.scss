@@ -11,7 +11,7 @@
       padding: 25px;
     }
   
-    .nav-links-con {
+    .navbar-links-con {
       width: 50%;
       height: 100%;
       display: flex;
@@ -22,5 +22,11 @@
         padding: 10px 15px;
         cursor: pointer;
       }
+    }
+
+    .logo{
+      height: 65px;
+      width: 95px;
+      // padding: 25px;
     }
   }
