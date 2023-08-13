@@ -1,17 +1,12 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import {
-    getAuth, 
-    signInWithRedirect, 
-    signInWithPopup, 
-    GoogleAuthProvider,
-} from 'firebase/auth';
+  getAuth,
+  signInWithRedirect,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc
-} from 'firebase/firestore';
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 // Import the functions you need from the SDKs you need
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -24,17 +19,16 @@ const firebaseConfig = {
   projectId: "vstudio-clo",
   storageBucket: "vstudio-clo.appspot.com",
   messagingSenderId: "214279440149",
-  appId: "1:214279440149:web:60b44b0ac06a783e670b1c"
+  appId: "1:214279440149:web:60b44b0ac06a783e670b1c",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
+const googleProvider = new GoogleAuthProvider();
 
-const provider = new GoogleAuthProvider();
-
-provider.setCustomParameters({
-  prompt: "select_account"
+googleProvider.setCustomParameters({
+  prompt: "select_account",
 });
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -45,34 +39,35 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => {
-    return signInWithPopup(auth, provider)
+  return signInWithPopup(auth, googleProvider);
+};
+export const signInWithGoogleRedirect = () => {
+  return signInWithRedirect(auth, googleProvider);
 };
 
 // getFirestore allows access when data is needed from db
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = async (userAuth) => {
-    const userDocRef = doc(db, 'users',userAuth.uid  );
-    console.log(userDocRef);
-    
-    
-    const userSnapShot = await getDoc(userDocRef);
-    console.log(userSnapShot);
+  const userDocRef = doc(db, "users", userAuth.uid);
+  console.log(userDocRef);
 
-    if(!userSnapShot.exists()){
-        const { displayName,email} = userAuth;
-        const createdAt = new Date();
+  const userSnapShot = await getDoc(userDocRef);
+  console.log(userSnapShot);
 
-        try {
-            await setDoc(userDocRef, {
-                displayName,
-                email,
-                createdAt
-            });
+  if (!userSnapShot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
 
-        } catch (error){
-            console.log('error creating the user', error.message );
-        }
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (error) {
+      console.log("error creating the user", error.message);
     }
-    return userDocRef;
-}
+  }
+  return userDocRef;
+};
