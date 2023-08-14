@@ -6,6 +6,7 @@ import Vfilm from '../../assets/filmvic.jpg';
 import Vic from '../../assets/vfilm2.jpg';
 import Vicrop from '../../assets/pan.jpg';
 import Vframe from '../../assets/vframe.jpg';
+import Vj from '../../assets/vj.jpg';
 
 const Home = () => {
   const categories = [
