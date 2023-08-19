@@ -13,9 +13,8 @@ import { SignUpForm } from '../../components/signup-form/SignUpForm';
 const SignIn = ()=>{
     
     const logGoogleUser = async() => {
-        const response = await signInWithGooglePopup();
-        createUserDocumentFromAuth(response);
-        console.log(response);
+        const {user} = await signInWithGooglePopup();
+        const userDocRef = await createUserDocumentFromAuth(user);
     }
 
     // const logGoogleRedirectUser = async () => {
