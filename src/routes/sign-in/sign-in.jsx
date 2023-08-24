@@ -1,4 +1,5 @@
 import  { useEffect } from 'react';
+import '../../components/Button/button.scss'
 // import { getRedirectResult } from 'firebase/auth';
 
 import { 
@@ -28,7 +29,7 @@ const SignIn = ()=>{
                 <button onClick={logGoogleUser}>
                 Sign in with Google 
                 </button>
-            <SignUpForm/>
+            <SignUpForm buttonType='inverted'/>
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormInput  from '../form-input/form-input';
-import Button from '../Button/button;'
+import './signupform.scss'
+import Button from '../Button/button'
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -12,7 +13,7 @@ const defaultFormsFields = {
   email: "",
   password: "",
   confirmPassword: "",
-};
+}; 
 
 export const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormsFields);
@@ -57,8 +58,9 @@ export const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign up to Victor-Studios with Email and Password</h1>
+    <div className="signup-container">
+      <h2>Don't have an account</h2>
+      <span>Sign up with email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput
           label='DisplayName'
@@ -91,7 +93,7 @@ export const SignUpForm = () => {
         />
 
         <FormInput
-          label="Password"
+          label="Confirm Password"
           type="password"
           required
           onChange={handleChange}
@@ -99,9 +101,9 @@ export const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <button type="submit" on>
+        <Button buttonType type="submit" on>
           Sign Up
-        </button>
+        </Button>
       </form>
     </div>
   );
