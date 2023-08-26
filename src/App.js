@@ -3,8 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Navigation from './routes/Navbar/Nav-bar'
 import Home from './routes/home/home-comp';
-import SignIn from './routes/sign-in/sign-in';
-
+import Authentication from './routes/authentication/Authentication';
 
 const Shop = ()=> {
   return <h1>Shop page</h1>;
@@ -20,7 +19,7 @@ const App =() => {
         <Route index element={<Home />}/>
         {/* displays def home comp when path is set to index */}
         <Route path='shop' element={<Shop />}/>
-        <Route path='sign-in' element={<SignIn />} />
+        <Route path='auth' element={<Authentication />} />
      </Route>
     </Routes>
     
