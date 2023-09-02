@@ -1,13 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import {Outlet, Link} from 'react-router-dom';
 import './navbar.scss';
 import React from "react";
 
 
 import Vlogo from '../../assets/logo.png';
+import { UserContext } from "../../user-context/User-Context";
 
 const Navigation = ()=> {
- 
+  const { currentUser } = useContext(UserContext);
   
     // Link comp is similar to anchor tag which aides in routing
     return (
@@ -21,9 +22,14 @@ const Navigation = ()=> {
                 <Link className="nav-link" to='/shop'>
                   Shop 
                 </Link>
-                <Link className="nav-link" to='/auth'>
-                  Sign In
-                </Link>
+                
+                {/* {currentUser ? (
+                  <span className="nav-link">Sign Out </span>
+                  ) : (
+                    <Link className="nav-link" to='/auth'>
+                        Sign In
+                    </Link>
+                )} */}
             </div>
         </div>
         <Outlet />
