@@ -23,13 +23,14 @@ const Navigation = ()=> {
                   Shop 
                 </Link>
                 
-                {/* {currentUser ? (
-                  <span className="nav-link">Sign Out </span>
+                {
+                  currentUser ? (
+                    <span className="nav-link">Sign Out </span>
                   ) : (
                     <Link className="nav-link" to='/auth'>
-                        Sign In
+                      Sign In
                     </Link>
-                )} */}
+                )}
             </div>
         </div>
         <Outlet />

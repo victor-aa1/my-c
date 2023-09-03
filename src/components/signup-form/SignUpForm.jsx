@@ -22,19 +22,10 @@ const defaultFormsFields = {
 export const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormsFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
-  const val = useContext(UserContext);
-
-  console.log(formFields);
+  const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(formFields);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormFields({ ...formFields, [name]: value });
   };
 
   const handleSubmit = async (event) => {
@@ -51,20 +42,26 @@ export const SignUpForm = () => {
         password
       );
 
-    setCurrentUser(user);
-
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
+      setCurrentUser(user);
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");
       } else {
-        console.log("");
+        console.log("user creation encountered an error", error);
       }
-      console.log("User created encountered an error", error);
     }
   };
 
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
+  };
+
+  
   return (
     <div className="signup-container">
       <h2>Don't have an account</h2>
