@@ -8,6 +8,7 @@ import Vicrop from '../../assets/pan.jpg';
 import Vframe from '../../assets/vframe.jpg';
 import Vj from '../../assets/vj.jpg';
 import Jacket from '../../assets/jac.jpeg'
+import GreenHat from '../../assets/grbeanie.png';
 
 const Home = () => {
   const categories = [
