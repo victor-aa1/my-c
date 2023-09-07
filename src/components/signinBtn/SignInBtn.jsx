@@ -4,11 +4,11 @@ import FormInput  from '../form-input/form-input';
 import './signin.scss'
 import Button from '../Button/button'
 
-import { UserContext } from "../../user-context/User-Context";
+import { UserContext } from "../../context/User-Context";
 
 import {
    signInWithGooglePopup,
-    createUserDocumentFromAuth,
+   
     signInAuthWithEmailAndPassword
   } from "../../utils/firebase";
 
@@ -33,8 +33,8 @@ export const SignInBtn = () => {
 
     
       const signInWithGoogle = async() => {
-        const {user} = await signInWithGooglePopup();
-       await createUserDocumentFromAuth(user);
+         await signInWithGooglePopup();
+      //  await createUserDocumentFromAuth(user);
     }
 
     const handleSubmit = async (event) => {

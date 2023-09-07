@@ -4,10 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/Navbar/Nav-bar'
 import Home from './routes/home/home-comp';
 import Authentication from './routes/authentication/Authentication';
+import Shop from './routes/shop/Shop'
 
-const Shop = ()=> {
-  return <h1>Shop page</h1>;
-}
 
 const App =() => {
   
@@ -18,8 +16,9 @@ const App =() => {
         
         <Route index element={<Home />}/>
         {/* displays def home comp when path is set to index */}
-        <Route path='shop' element={<Shop />}/>
+        
         <Route path='auth' element={<Authentication />} />
+        <Route path='shop' element={<Shop />}/>
      </Route>
     </Routes>
     

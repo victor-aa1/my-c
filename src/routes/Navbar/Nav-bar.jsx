@@ -5,7 +5,7 @@ import React from "react";
 
 
 import Vlogo from '../../assets/logo.png';
-import { UserContext } from "../../user-context/User-Context";
+import { UserContext } from "../../context/User-Context";
 
 const Navigation = ()=> {
   const { currentUser } = useContext(UserContext);

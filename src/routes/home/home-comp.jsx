@@ -7,6 +7,7 @@ import Vic from '../../assets/vfilm2.jpg';
 import Vicrop from '../../assets/pan.jpg';
 import Vframe from '../../assets/vframe.jpg';
 import Vj from '../../assets/vj.jpg';
+import Jacket from '../../assets/jac.jpeg'
 
 const Home = () => {
   const categories = [
@@ -18,7 +19,7 @@ const Home = () => {
     {
       id: 2,
       title: 'jackets',
-      imageUrl: Raj,
+      imageUrl: Jacket,
     },
     {
       id: 3,
