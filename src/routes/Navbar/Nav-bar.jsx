@@ -34,7 +34,7 @@ const Navigation = ()=> {
                 {/* <Cart/> */}
             </div>
         </div>
-        <Outlet />
+        <Outlet /> 
         {/* outlet comp creates template for nested routes. ie toplevel component  */}
       </Fragment>
     );
