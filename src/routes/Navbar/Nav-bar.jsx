@@ -3,7 +3,7 @@ import {Outlet, Link} from 'react-router-dom';
 import './navbar.scss';
 import React from "react";
 
-
+// import Cart from "../../components/cart/cartIcon";
 import Vlogo from '../../assets/logo.png';
 import { UserContext } from "../../context/User-Context";
 
@@ -30,7 +30,8 @@ const Navigation = ()=> {
                     <Link className="nav-link" to='/auth'>
                       Sign In
                     </Link>
-                )}
+                  )}
+                {/* <Cart/> */}
             </div>
         </div>
         <Outlet />
