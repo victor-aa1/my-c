@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App'
 import {UserProvider} from './context/User-Context'
 import {ProductsProvider} from './context/Products'
-import { HashRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import './index.scss'
 
 
@@ -13,13 +13,13 @@ import './index.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router>
+    <HashRouter>
       <UserProvider>
         <ProductsProvider>
           <App />
         </ProductsProvider>
       </UserProvider>
-    </Router>
+    </HashRouter>
   </React.StrictMode>
 );
 {/* <React.StrictMode> */}
